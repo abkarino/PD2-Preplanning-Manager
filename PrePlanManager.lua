@@ -313,7 +313,7 @@ elseif requiredScript == "lib/managers/preplanningmanager" then
 			for folder in string.gmatch(path, "([^/]*)/") do
 				current = Application:nice_path(current .. folder, true)
 
-				if not self:DirectoryExists(current) then
+				if not PrePlanningManager.DirectoryExists(current) then
 					if SystemFS and SystemFS.make_dir then
 						SystemFS:make_dir(current)
 					elseif file and file.CreateDirectory then
@@ -322,7 +322,7 @@ elseif requiredScript == "lib/managers/preplanningmanager" then
 				end
 			end
 
-			return self:DirectoryExists(path)
+			return PrePlanningManager.DirectoryExists(path)
 		end
 
 		function PrePlanningManager.save_plans()
